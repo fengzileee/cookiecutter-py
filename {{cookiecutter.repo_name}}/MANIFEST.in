@@ -1,6 +1,4 @@
-graft docs
 graft src
-graft ci
 graft tests
 
 {% if cookiecutter.version_manager == 'bump2version' -%}
