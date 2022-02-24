@@ -88,7 +88,9 @@ setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-{%- if cookiecutter.command_line_interface == 'click' %}
+{%- if cookiecutter.command_line_interface == 'typer' %}
+        'typer',
+{%- elif cookiecutter.command_line_interface == 'click' %}
         'click',
 {%- endif %}
         # eg: 'aspectlib==1.1.1', 'six>=1.7',

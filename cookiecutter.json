@@ -17,7 +17,7 @@
     "project_name": "nametk",
     "repo_name": "{{ cookiecutter.project_name|lower|replace(' ','-') }}",
     "package_name": "{{ cookiecutter.project_name|lower|replace(' ','_')|replace('-','_') }}",
-    "command_line_interface": ["click", "plain", "argparse", "no"],
+    "command_line_interface": ["typer", "click", "plain", "argparse", "no"],
     "distribution_name": "{{ cookiecutter.package_name|replace('_','-') }}",
     "command_line_interface_bin_name": "{{ cookiecutter.distribution_name }}",
     "version": "0.0.0",

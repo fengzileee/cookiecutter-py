@@ -14,14 +14,37 @@ Why does this file exist, and why not put this in __main__?
 
   Also see (1) from http://click.pocoo.org/5/setuptools/#setuptools-integration
 """
-{%- if cookiecutter.command_line_interface == 'click' %}
+{%- if cookiecutter.command_line_interface == 'typer' %}
+import typer
+{%- elif cookiecutter.command_line_interface == 'click' %}
 import click
 {%- elif cookiecutter.command_line_interface == 'argparse' %}
 import argparse
 {%- else %}
 import sys
 {%- endif %}
-{%- if cookiecutter.command_line_interface == 'click' %}
+{%- if cookiecutter.command_line_interface == 'typer' %}
+
+
+app = typer.Typer()
+
+
+@app.command()
+def entry(
+    name: str,
+    age: int = typer.Option(2, "-a", "--age", help="Age."),
+):
+    """Default entrypoint."""
+    typer.echo(f"Hello, I'm {name}. I'm {age} years old.")
+
+
+def main():
+    app()
+
+
+if __name__ == "__main__":
+    main()
+{%- elif cookiecutter.command_line_interface == 'click' %}
 
 
 @click.command()
