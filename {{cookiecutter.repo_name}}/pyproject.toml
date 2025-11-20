@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{ cookiecutter.distribution_name }}"
+version = "{{ cookiecutter.version }}"
+description = ""
+readme = "README.md"
+requires-python = ">=3.8"
+
+{%- if cookiecutter.license != "no" %}
+license = { file = "LICENSE" }
+{%- endif %}
+
+keywords = [
+    # "keyword1",
+    # "keyword2",
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+
+dependencies = [
+{%- if cookiecutter.command_line_interface == 'typer' %}
+    "typer",
+{%- elif cookiecutter.command_line_interface == 'click' %}
+    "click",
+{%- endif %}
+    # "aspectlib==1.1.1",
+    # "six>=1.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    # "docutils>=0.11",
+]
+# You can also add environment markers here if needed, e.g.:
+# dev-py26 = ["argparse; python_version=='2.6'"]
+
+{%- if cookiecutter.command_line_interface != 'no' %}
+[project.scripts]
+{{ cookiecutter.command_line_interface_bin_name }} = "{{ cookiecutter.package_name }}.cli:main"
+{%- endif %}
+
+[tool.setuptools]
+zip-safe = false
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
