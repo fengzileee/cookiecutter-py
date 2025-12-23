@@ -9,24 +9,7 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.8"
 
-{%- if cookiecutter.license != "no" %}
-license = "{% if cookiecutter.license == 'MIT license' %}MIT{%
-elif cookiecutter.license == 'BSD 2-Clause License' %}BSD-2-Clause{%
-elif cookiecutter.license == 'BSD 3-Clause License' %}BSD-3-Clause{%
-elif cookiecutter.license == 'ISC license' %}ISC{%
-elif cookiecutter.license == 'Apache Software License 2.0' %}Apache-2.0{%
-elif cookiecutter.license == 'GNU Lesser General Public License v3 or later (LGPLv3+)' %}LGPL-3.0-or-later{%
-elif cookiecutter.license == 'GNU Lesser General Public License v3 (LGPLv3)' %}LGPL-3.0-only{%
-elif cookiecutter.license == 'GNU Lesser General Public License v2.1 or later (LGPLv2+)' %}LGPL-2.1-or-later{%
-elif cookiecutter.license == 'GNU Lesser General Public License v2.1 (LGPLv2)' %}LGPL-2.1-only{%
-endif %}"
-license-files = ["LICENSE"]
-{%- endif %}
-
-keywords = [
-    # "keyword1",
-    # "keyword2",
-]
+keywords = []
 
 classifiers = [
     "Programming Language :: Python :: 3",
